@@ -27,7 +27,7 @@ static defaultProps ={
     pickerToolBarBg:[232, 232, 232, 1],
     pickerConfirmBtnColor: [0,0,0,1],
     pickerTitleColor: [0,0,0,1],
-    pickerBg: [255, 255, 255,255],            
+    pickerBg: [255, 255, 255,255],
     pickerCancelBtnText: 'انصراف',
     yearCount:30,
     onConfirm:(data)=>{},
@@ -41,7 +41,7 @@ static defaultProps ={
         const {year,month,day} = this.getSelectedDate();
         return (
             <TouchableWithoutFeedback onPress={()=>Picker.show()} >
-                <View style={[styles.containerStyle,this.props.style]}> 
+                <View style={[styles.containerStyle,this.props.style]}>
                     <Text style={[styles.textStyle,this.props.textStyle]}>
                         {year}
                     </Text>
@@ -49,7 +49,7 @@ static defaultProps ={
                         {this.getMonthString(month)}
                     </Text>
                     <Text style={[styles.textStyle,this.props.textStyle]}>
-                        {day}                   
+                        {day}
                     </Text>
                 </View>
            </TouchableWithoutFeedback>
@@ -65,7 +65,7 @@ static defaultProps ={
             pickerToolBarBg,
             pickerConfirmBtnColor,
             pickerTitleColor,
-            pickerBg,            
+            pickerBg,
             pickerCancelBtnText
         } = this.props;
         const {year,month,day}=this.state;
@@ -79,25 +79,25 @@ static defaultProps ={
             pickerToolBarBg,
             pickerConfirmBtnColor,
             pickerTitleColor,
-            pickerBg,            
+            pickerBg,
             pickerCancelBtnText,
             selectedValue:[year,this.getMonthString(month),day],
             onPickerConfirm: data => {
                 data[1]=  this.getMonthNumber(data[1]);
-                this.setState({year: data[0] ,day: data[2] ,month: data[1]});        
+                this.setState({year: data[0] ,day: data[2] ,month: data[1]});
                 this.props.onConfirm(data);
             },
             onPickerCancel: data => {
-                data[1]=  this.getMonthNumber(data[1]);                
+                data[1]=  this.getMonthNumber(data[1]);
                 this.props.onCancel(data);
             },
             onPickerSelect: data => {
-                data[1]=  this.getMonthNumber(data[1]);                                
-                this.props.onSelect(data);                
+                data[1]=  this.getMonthNumber(data[1]);
+                this.props.onSelect(data);
             }
-            
+
         });
-        Picker.hide();        
+        Picker.hide();
     }
     getMonthString(number){
         switch(number){
@@ -158,7 +158,7 @@ static defaultProps ={
         return number;
     }
     getSelectedDate(){
-        var year, day, month;        
+        var year, day, month;
         if( this.state.day==undefined){
             if(this.props.selectedDate == undefined){
                 var _now=moment();
@@ -179,7 +179,7 @@ static defaultProps ={
         return {year,day,month};
     }
 
-    _createDates(){    
+    _createDates(){
         m =this.props.minDate==undefined ? moment() : moment(this.props.minDate,'jYYYY/jM/jD');
         var month=m.jMonth();
         var year=m.jYear();
@@ -206,28 +206,28 @@ static defaultProps ={
             let _data = {};
             _data[_year] = months;
             data.push(_data);
-            m.add(1,'jYear');    
+            m.add(1,'jYear');
         }
         return data;
-        
+
     }
 }
 
 const styles={
     containerStyle:{
         padding:3,
-        justifyContent:'space-around', 
-        flexDirection:'row', 
-        alignItems:'center', 
-        borderColor:'#424242', 
-        borderWidth:1, 
-        borderRadius:10, 
-        marginLeft:25, 
-        marginRight:25, 
-        backgroundColor:'white', 
+        justifyContent:'space-around',
+        flexDirection:'row',
+        alignItems:'center',
+        borderColor:'#424242',
+        borderWidth:1,
+        borderRadius:10,
+        marginLeft:25,
+        marginRight:25,
+        backgroundColor:'white',
         minWidth:150,
     },
     textStyle:{
-       
+
     }
 }

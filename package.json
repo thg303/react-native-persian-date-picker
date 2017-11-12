@@ -1,6 +1,6 @@
 {
-	"name": "react-native-persian-date-picker",
-	"version": "0.0.3",
+	"name": "@thg303/react-native-persian-date-picker",
+	"version": "0.0.4",
 	"description": "Simple Persian(jalali) DatePicker for react native. ⚛",	
 	"private": false,
 	"author": "Milad Bagheri",
